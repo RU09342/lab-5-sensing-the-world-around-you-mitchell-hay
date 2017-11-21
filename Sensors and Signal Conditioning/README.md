@@ -13,8 +13,15 @@ The hardware component of the lab was to use to sensors to convert physical phen
 A photoresistor is a resistor that changes its resistance depending on the amount of light that interacts with the sensor. The circuit for this sensor was the simple voltage divider. A voltage will be obtained and read by the ADC. 
 ![Alt text](https://user-images.githubusercontent.com/31711430/33094740-27ec258a-cecf-11e7-869e-a9bdcac11cf9.PNG)
 
+\begin{equation}
+V_out = V_in*\frac{R_2}{R_1+R_2}
+\end{equation}
+This is the voltage divider equation which calculates the voltage that can be obtained from the circuit. 
+
 ### Temperature Sensor
 The LM35 is a temperature sensor that doesn't even require a true circuit to use. Simple connect the IC to ground, power and then read its output. The output voltage can then be converted to degrees celsiu. The conversion is 1C/10mV.  
 
 ### Phototransistor  
 A phototransistor is a light-sensitive transitor. The sensor can generate current when light is absorbed. The sensor can operate in two modes: photovoltaic and photoconductive. When the transistor is zero-biased, then its in photovoltaic mode where the current is restricted. Meanwhile, the sensor is in photoconductive mode when it's reverse-biased. A common-emitter circuit was built with the phototransistor to get an output voltage. 
+
+![Alt text](https://user-images.githubusercontent.com/31711430/33094753-2de4b736-cecf-11e7-96f2-d7351178b7ae.PNG)
