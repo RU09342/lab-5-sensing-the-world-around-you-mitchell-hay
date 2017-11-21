@@ -22,6 +22,7 @@ The ADC was the main software component of this lab. Configuring the ADC require
 	ADC12IE = 0x01;                           // Enable interrupt
 	ADC12CTL0 |= ADC12ENC;                    // enables conversions
 }
+```
 ## Hardware
 The hardware component of the lab was to use to sensors to convert physical phenomena into electrical ones. For this purpose, a different circuit was built around each of the three sensors: photoresistor, temperature sensor, and phototransistor. 
 
