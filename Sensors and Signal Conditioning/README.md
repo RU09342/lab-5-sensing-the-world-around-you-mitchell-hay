@@ -1,25 +1,20 @@
-# Sensors and Signal Conditioning
-One of the biggest limitations of the microcontroller is the fact that it lives in a digital world. We need certain components to be able to translate the analog world to the digital world and vice-versa. In this lab, we need to be able to convert some electrical phenomena into something our microcontroller can understand. For this, we need a few building blocks to do this.
+## Shani Thapa, Mitchell Hay 
+* Added Code 
+* Populated README on 11/21
 
-## Sensors
-Sensors in a nutshell convert a physical phenomena into an electrical phenomena. For example, and accelerometer converts an acceleration into a change in capacitance (in the case of some MEMS devices). This electrical phenomena does not have to be a voltage, and as such, we need to be able to convert our sensor output to a voltage. From there, we can read in this voltage through our Analog to Digital Converter (ADC).
+## Software
+### ADC
+The ADC was the main software component of this lab. Configuring the ADC required alot of new registers and variables to be manipulated just like UART and Timers. The process should be similar but with new variables and registers.   
 
-## Signal Conditioning
-The signal conditioning chain can be broken up into a few main building blocks. In the beginning you have your sensor which converts something into the electrical world. We then need a block which can convert that resultant electrical phenomena into a voltage. From here, this voltage may be too small/large for our microcontroller, so we need to amplify the signal. From there, we may need to de-noise the signal by filtering. After all of this, we might be at a point where we are ready to read the signal into our processor.
+## Hardware
+The hardware component of the lab was to use to sensors to convert physical phenomena into electrical ones. For this purpose, a different circuit was built around each of the three sensors: photoresistor, temperature sensor, and phototransistor. 
 
-## Task
-For this part of the lab, you need to focus on two main aspects: utilizing and reading the ADC, and conditioning a sensor to provide you with a decent output. To do this, you will need to build the proper circuitry to take a measurement from sensors which convert a physical phenomena into:
-* Voltage
-* Current
-* Resistance
+### Photoresistor
+A photoresistor is a resistor that changes its resistance depending on the amount of light that interacts with the sensor. The circuit for this sensor was the simple voltage divider. A voltage will be obtained and read by the ADC. 
+![Alt text](https://user-images.githubusercontent.com/31711430/33094740-27ec258a-cecf-11e7-869e-a9bdcac11cf9.PNG)
 
-## Deliverables
+### Temperature Sensor
+The LM35 is a temperature sensor that doesn't even require a true circuit to use. Simple connect the IC to ground, power and then read its output. The output voltage can then be converted to degrees celsiu. The conversion is 1C/10mV.  
 
-### Code
-Your code for this section should focus heavily on the ADC and being able to pull data from it. Your code need to communicate back to your computer using UART at 9600 Baud and send the ADC contents at 1 reading per second to start. This really is meant for you to see whether or not your signal conditioning is actually working and you can see changes in your sensor reading. This code should be very very similar to code you have written before and should be simple to port between your processors.
-
-### Hardware
-The hardware portion should be the same for each of the processors. You will need to have a total of 3 circuits made, each corresponding to a different sensor. You need to look at the range of measurements and the amount of resolution you can get out of your ADC and determine how to convert, scale, and filter your signal. Don't forget the fact that you will need to convert to a voltage, making some of these circuits not so trivial. The main goal as the hardware designer for these sensors is to provide the microprocessor with the best resolution to maximize the effectiveness of the ADC.
-
-### README
-The README for this part of the lab should talk briefly about how the ADC code works, but focus way more on the hardware aspect. You need to include schematics of your circuits, and well as supporting simulation/calculations which show that your circuits should work. You should talk about what types of circuits you are using and how they actually work.
+### Phototransistor  
+A phototransistor is a light-sensitive transitor. The sensor can generate current when light is absorbed. The sensor can operate in two modes: photovoltaic and photoconductive. When the transistor is zero-biased, then its in photovoltaic mode where the current is restricted. Meanwhile, the sensor is in photoconductive mode when it's reverse-biased. A common-emitter circuit was built with the phototransistor to get an output voltage. 
