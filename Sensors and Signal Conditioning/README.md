@@ -5,13 +5,13 @@
 ## Software
 ### ADC
 The ADC was the main software component of this lab. Configuring the ADC required alot of new registers and variables to be manipulated just like UART and Timers. The process should be similar but with new variables and registers. 
-*ADCxxCTLx register selects the ADC input channel and the ADC clock division
-*ADCxxIE enables interrupts for the specific ADC
-*ADCxxON turn on the specific ADC 
-*ADCxxSHTxx is the sample and hole time. These bits define the number of clock cycles in ADC 
-*ADCxxSHP is the sample and hold pulse-mode select, decides if the source of the sampling signal is input or output 
-*ADCxxENC enables conversions 
-*ADCxxSC starts conversions 
+* ADCxxCTLx register selects the ADC input channel and the ADC clock division
+* ADCxxIE enables interrupts for the specific ADC
+* ADCxxON turn on the specific ADC 
+* ADCxxSHTxx is the sample and hole time. These bits define the number of clock cycles in ADC 
+* ADCxxSHP is the sample and hold pulse-mode select, decides if the source of the sampling signal is input or output 
+* ADCxxENC enables conversions 
+* ADCxxSC starts conversions 
 
 #### Code Example for 12-Bit ADC 
 ```
