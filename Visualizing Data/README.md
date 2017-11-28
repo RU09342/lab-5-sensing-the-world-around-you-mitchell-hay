@@ -3,6 +3,7 @@
 * README populated on 11/21
 
 ## RGB LED
+One way to visually see how sensors are changing signals was to use the MSP430 to power an RGB LED based on the ambient temperature around a thermistor. As the temperature around the thermistor increased, the RGB LED would show a warmer color, and vice versa for a decreasing temperature. The color spectrum used for temperature can be seen in the figure below. The temperature range was 0 C to 100 C. To show increasing and decreasing temperatures, outside forces were implemented (hair dryer for hot, ice pack for cold).
 ![RGB Spectrum](https://github.com/RU09342/lab-5-sensing-the-world-around-you-mitchell-hay/blob/master/Visualizing%20Data/Images/rgb%20spectrum.png)
 
 ## LCD Display 
