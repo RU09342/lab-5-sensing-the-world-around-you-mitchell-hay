@@ -24,4 +24,4 @@ This was the main code we used for initialize the code. Most of it was taken fro
 ![Alt text](https://user-images.githubusercontent.com/31711430/33097203-5cdd7ffc-ced7-11e7-9534-d9d8c70c0208.jpg) 
 
 ## PC Visualization
-This part of the lab was accomplished through Python. 
+There are several different ways to read back data from the serial output of the MSP430. The programs we have used in the past were Realterm and PuTTy, however there are other programs that could read the data, then do something with it. One of those programs is Python and the PySerial library, which were used in this lab. Using this library, data values were able to be read in, stored in a Python program, and manipulated. 
