@@ -44,3 +44,8 @@ A phototransistor is a light-sensitive transitor. The sensor can generate curren
 ![Alt text](https://user-images.githubusercontent.com/31711430/33094753-2de4b736-cecf-11e7-96f2-d7351178b7ae.PNG)
 
 In this configuration, the voltage remains constant when the transistor's exposure to light remains constant. As more light is absorbed by the phototransistor though, the output voltage will decrease. 
+
+####
+Gif of Phototransistor Circuit 
+
+![Alt text](https://user-images.githubusercontent.com/31711430/33403532-c3abd92e-d52e-11e7-8535-7dec2fc5686a.gif) 
