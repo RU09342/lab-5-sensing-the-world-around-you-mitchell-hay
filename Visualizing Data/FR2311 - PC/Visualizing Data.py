@@ -11,7 +11,7 @@ i = 0
 ser = serial.Serial(PORT, BAUD, timeout=1)
 while(1):
     if ser.is_open:
-        s = ser.read(2).encode('hex')
+        s = ser.readline()
         print s
         i += 1
 

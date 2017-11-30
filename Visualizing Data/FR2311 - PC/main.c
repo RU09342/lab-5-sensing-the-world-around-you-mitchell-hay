@@ -57,7 +57,6 @@ int main(void) {
 	while (1) {
 		ADCCTL0 |= ADCENC | ADCSC;              	// Sampling and conversion start
 		__bis_SR_register(LPM0_bits | GIE);     	// LPM0, ADC_ISR will force exit
-		__no_operation();                           // For debug only
 		__delay_cycles(5000);
 	}
 
@@ -170,9 +169,15 @@ void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) Timer_A (void)
 #error Compiler not supported!
 #endif
 {
-	// Transmit 2 bytes, get all data
-	UCA0TXBUF = ADC_Result / 256;
-	UCA0TXBUF = ADC_Result % 256;
+	// Transmit byte, get all data
+	while(ADC_Result != 0)
+	{
+		while (!(UCA0IFG & UCTXIFG));
+		UCA0TXBUF = ADC_Result % 10;
+		ADC_Result /= 10;
+	}
+	while (!(UCA0IFG & UCTXIFG));
+	UCA0TXBUF = '\n';
 	__no_operation();
 }
 
