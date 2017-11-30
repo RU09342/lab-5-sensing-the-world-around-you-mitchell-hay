@@ -5,7 +5,7 @@
 ## RGB LED
 One way to visually see how sensors are changing signals was to use the MSP430 to power an RGB LED based on the ambient temperature around a thermistor. As the temperature around the thermistor increased, the RGB LED would show a warmer color, and vice versa for a decreasing temperature. The color spectrum used for temperature can be seen in the figure below. The temperature range was 0 C to 100 C. To show increasing and decreasing temperatures, outside forces were implemented (hair dryer for hot, ice pack for cold).
 ![RGB Spectrum](https://github.com/RU09342/lab-5-sensing-the-world-around-you-mitchell-hay/blob/master/Visualizing%20Data/Images/rgb%20spectrum.png)
-![RGB Hot](/Images/Therm-Hot.gif)
+![RGB Hot](https://github.com/RU09342/lab-5-sensing-the-world-around-you-mitchell-hay/blob/master/Visualizing%20Data/Images/Therm-Hot.gif)
 
 ## LCD Display 
 The FR6989 was the only board with an LCD display, so this board must be used for this part of the lab. Once again, the LCD must be initialized like Timers, UART, etc. We are given the LCD driver folder which provides code that facilitates the displaying of characters and numbers to the LCD. We decided to output the temperature into the LCD from the LM35 temperature sensor. The main thing that had to be done in code was to initialize the LCD itself. There are a bunch of variables and registers that must be manipulated for intialization. 
