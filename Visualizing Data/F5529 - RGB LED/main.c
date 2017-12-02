@@ -1,3 +1,9 @@
+/*
+ * Mitchell Hay and Shani Thapa
+ * RU09342 - 4
+ * Lab 5 - RGB LED
+ * MSP430F5529
+ */
 //******************************************************************************
 //   MSP430F552x Demo - ADC12, Sample A0, Set P1.0 if A0 > 0.5*AVcc
 //
@@ -97,6 +103,7 @@ void __attribute__ ((interrupt(ADC12_VECTOR))) ADC12_ISR (void)
 	  case 12:                                  // Vector 12:  ADC12IFG3
 		  diff1 = val-ADC12MEM1;
 		  diff2 = ADC12MEM1-val;
+	          // Set up buffer so LED isn't constantly changing
 		  if ((diff1 >= 10) || (diff2 >= 10)){
 		  val = ADC12MEM1;
 		  // Blue Region -> Purple Region
@@ -143,18 +150,21 @@ void __attribute__ ((interrupt(ADC12_VECTOR))) ADC12_ISR (void)
 		  		g = 0xFF * percentage;
 		  		b = 0x00;
 		  	}
+			  // If greater than 100C
 		  	else if (val < 242)
 		  	{
 		  		r = 0xFF;
 		  		g = 0x00;
 		  		b = 0x00;
 		  	}
+			  // If lower than 0C
 		  	else if (val > 3100)
 		  	{
 		  		r = 0xFF;
 		  		g = 0x00;
 		  		b = 0xFF;
 		  	}
+			  // Set RGB LED
 		  TA0CCR1 = r;
 		  TA0CCR2 = g;
 		  TA0CCR3 = b;
