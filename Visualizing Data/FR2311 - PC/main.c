@@ -1,3 +1,10 @@
+/*
+ * Mitchell Hay and Shani Thapa
+ * RU09342 - 4
+ * Lab 5 - PC Visualization
+ * MSP430F5529
+ */
+
 #include <msp430.h>
 unsigned int ADC_Result;
 
