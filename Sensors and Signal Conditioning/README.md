@@ -1,6 +1,4 @@
 ## Shani Thapa, Mitchell Hay 
-* Added Code 
-* Populated README on 11/21
 
 ## Software
 ### ADC
