@@ -169,13 +169,14 @@ void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) Timer_A (void)
 #error Compiler not supported!
 #endif
 {
-	// Transmit byte, get all data
+	// Transmit digit by digit
 	while(ADC_Result != 0)
 	{
 		while (!(UCA0IFG & UCTXIFG));
 		UCA0TXBUF = ADC_Result % 10;
 		ADC_Result /= 10;
 	}
+	// Send new line to indicate end of ADC
 	while (!(UCA0IFG & UCTXIFG));
 	UCA0TXBUF = '\n';
 	__no_operation();
