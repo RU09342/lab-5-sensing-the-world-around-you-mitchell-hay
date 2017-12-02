@@ -1,3 +1,9 @@
+/*
+ * Mitchell Hay and Shani Thapa
+ * RU09342 - 4
+ * Lab 5 - RGB LED
+ * MSP430F6989
+ */
 //******************************************************************************
 //  MSP430FR69xx Demo - ADC12, Sample A1, AVcc Ref, Set P1.0 if A1 > 0.5*AVcc
 //
@@ -38,6 +44,7 @@ int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
 
+    // LCD Display Initialization
     LCDCCTL0 &= ~LCDON;                                 // lcd off
     LCDCCTL0 = LCDDIV_2 + LCDPRE__4 + LCD4MUX + LCDLP;  // Flcd = 512 Hz; Fframe = 64 Hz
     LCDCMEMCTL = LCDCLRM;                               // clear memory
@@ -94,6 +101,7 @@ void __attribute__ ((interrupt(ADC12_VECTOR))) ADC12_ISR (void)
         case ADC12IV_ADC12LOIFG:  break;    // Vector  8:  ADC12BLO
         case ADC12IV_ADC12INIFG:  break;    // Vector 10:  ADC12BIN
 	case ADC12IV_ADC12IFG0:
+		    // Break up the ADC value
 			curr = ADC12MEM0;
 			voltage = ((float)curr/1241.2);
 			tens = voltage*10;
@@ -101,6 +109,7 @@ void __attribute__ ((interrupt(ADC12_VECTOR))) ADC12_ISR (void)
 			t = '0' + tens;
 			o = '0' + ones;
 //			tenths = voltage*1000;
+		    // Show on display
 			showChar(t, 1);
 			showChar(o, 2);
 			showChar(' ', 3);
